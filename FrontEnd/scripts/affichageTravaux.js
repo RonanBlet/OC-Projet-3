@@ -1,5 +1,7 @@
 const workRouteUrl = 'http://localhost:5678/api/works';
 
+
+
 fetch(workRouteUrl)
     .then(response => {
         if(!response.ok){
@@ -27,9 +29,11 @@ function afficherTravail(travail){
         nomTravail.textContent = travail.title;
 
         divTravail.id = travail.category.name;
+        divTravail.classList.add('gallery_' + travail.id);
         divTravail.appendChild(imageTravail);
         divTravail.appendChild(nomTravail);
 
         var affichageTravail = document.getElementById('gallery');
         affichageTravail.appendChild(divTravail);
 }
+
