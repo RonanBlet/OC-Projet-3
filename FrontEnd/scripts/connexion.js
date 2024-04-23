@@ -1,3 +1,5 @@
+//----------------------------------Connexion---------------------------------------------//
+
 const url = "http://localhost:5678/api/users/login";
 
 const form = document.getElementById("login");
@@ -11,11 +13,11 @@ var idUtilisateur = 0;
 var token = "";
 
 
-function handleSubmit(event){
+function handleSubmit(event){                                   //fonction au moment du clique sur le bouton de connexion
     event.preventDefault();
 
 
-    const email = document.getElementById("email").value;
+    const email = document.getElementById("email").value;       //récupération de l'Email et mot de passe de l'utilisateur
     const password = document.getElementById("password").value;
 
     const data = {
@@ -31,21 +33,21 @@ function handleSubmit(event){
         body: JSON.stringify(data)
     };
 
-    fetch(url, options)
+    fetch(url, options)                                             //envoie de la requete avec les données et options définies plus tôt
         .then(response => {
             if(!response.ok) {
                 throw new Error("erreur lors de la requete");
             }
             return response.json();
         })
-        .then(data => {
+        .then(data => {                                             //si connexion -> récupération du token / stockage dans le local storage, retour vers l'index
             idUtilisateur = data.userId;
             token = data.token;
             sessionStorage.setItem("token",token);
             window.location.href = './index.html'
         })
         .catch(error => {
-            form.appendChild(probleme);
+            form.appendChild(probleme);                             //si problème -> affichage d'un texte  : Utilisateur inconnu
         })
     
 
