@@ -14,7 +14,13 @@
 	<link rel="stylesheet" href="./assets/style.css">
 </head>
 <body>
-<header>
+<header id="header">
+	<div id="barreNoire" class="barreNoire">
+		<span>
+			<i class="fa-regular fa-pen-to-square"></i>
+			Mode édition
+		</span>
+	</div>
 	<h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
 	<nav>
 		<ul>
@@ -56,25 +62,29 @@
 				</div>
 				<p id="titreModal">Galerie photo</p>
 				<div class="photoModal" id="photoModal"></div>
-				<div class="divAjoutTravail" id="divAjoutTravail">
-					<div class="divAjoutPhoto">
-						<p><i class="fa-regular fa-image"></i></p>
-						<input type="file" id="inputImage" accept="image/*">
-						<button id="ajoutPhoto" onclick="document.getElementById('inputImage').click()">+ Ajouter photo</button>
-						<p>jpg, png : 4mo max</p>
+				<form class="formAjoutTravail" id="formAjoutTravail">
+					<div class="divAjoutImage" id="divAjoutImage">
+						<div id="boutonImage">
+							<p><i class="fa-regular fa-image"></i></p>
+							<input type="file" id="inputImage" accept="image/*" name="image" />
+							<button id="ajoutPhoto" onclick="document.getElementById('inputImage').click()" type="button">+ Ajouter photo</button>
+							<p>jpg, png : 4mo max</p>
+						</div>
 					</div>
-					<form class="descriptionTravail" method="post" id="nouveauTravail">
+					<div class="descriptionTravail"  id="descriptionTravail">
 						<label for="titre">Titre</label>
-						<input id="titre" type="text">
+						<input id="titre" type="text" name="title" />
 						<label for="choixCategorieModal">Catégorie</label>
-						<select id="choixCategorieModal">
+						<select id="choixCategorieModal" name="category">
 							<option value="" selected disabled></option>
 							<option value="1">Objets</option>
 							<option value="2">Appartements</option>
 							<option value="3">Hotels & restaurants</option>
-						</select>						
-					</form>
-				</div>
+						</select>
+						<p class="hidden" id="erreurForm">Veuillez remplir tous les champs</p>						
+					</div>
+					<button id="valider" type="submit">Valider</button>
+				</form>
 				<button id="ajoutTravail">Ajouter une photo</button>
 			</div>
 		</aside>

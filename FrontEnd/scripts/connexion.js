@@ -3,14 +3,13 @@
 const url = "http://localhost:5678/api/users/login";
 
 const form = document.getElementById("login");
+const erreurConnexion = document.getElementById('erreurConnexion');
 
 form.addEventListener("submit", handleSubmit);
 
-var probleme = document.createElement('p');
-probleme.textContent = 'Utilisateur inconnu'
 
-var idUtilisateur = 0;
-var token = "";
+let idUtilisateur = 0;
+let token = "";
 
 
 function handleSubmit(event){                                   //fonction au moment du clique sur le bouton de connexion
@@ -47,7 +46,7 @@ function handleSubmit(event){                                   //fonction au mo
             window.location.href = './index.html'
         })
         .catch(error => {
-            form.appendChild(probleme);                             //si problème -> affichage d'un texte  : Utilisateur inconnu
+            erreurConnexion.classList.remove('hidden');                             //si problème -> affichage d'un texte  : Utilisateur inconnu
         })
     
 

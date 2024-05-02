@@ -15,7 +15,7 @@
 	<h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
 	<nav>
 		<ul>
-			<li>projets</li>
+			<li><a href="./index.html">projets</a></li>
 			<li>contact</li>
 			<li class="login">login</li>
 			<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
@@ -27,10 +27,11 @@
 		<h2>Log In</h2>
 		<form method="post" id="login">
 			<label for="email">E-mail</label>
-			<input type="email" name="email" id="email" value="sophie.bluel@test.tld" required>
+			<input type="email" name="email" id="email" required>
 			<label for="password">Mot de Passe</label>
-			<input type="password" name="password" id="password" value="S0phie" required>
-			<input type="submit" value="Envoyer">
+			<input type="password" name="password" id="password" required>
+			<p class="erreurConnexion hidden" id="erreurConnexion">Utilisateur inconnu</p>
+			<input type="submit" value="Se connecter">
 			<a href="#">Mot de passe oublié</a>
 		</form>
 	</section>
