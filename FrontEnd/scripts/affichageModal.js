@@ -6,6 +6,7 @@ if(token !== null){
     //----------------------------------Affichage des travaux dans la modal---------------------------------------------//
     
     const workUrl = 'http://localhost:5678/api/works'; 
+    const photoModal = document.getElementById('photoModal');
 
     fetchWorkModal();
 
@@ -26,12 +27,12 @@ if(token !== null){
             let travaux = 0;
 
             while(travaux < data.length){
-                let travail = data.find(object => object.id === compteur)
+                let travail = data.find(object => object.id === compteur);
                 if(travail){
                     travaux++;
                     afficherModal(travail);
                 }
-                compteur++         
+                compteur++;    
             }
         })
         .catch(error => {
@@ -77,7 +78,6 @@ if(token !== null){
         poubelle.classList.add('fa-trash-can','fa-solid');
         img.src = travail.imageUrl;
 
-        var photoModal = document.getElementById('photoModal');
 
         button.appendChild(poubelle);                               //ajout des éléments sur la page HTML
 
@@ -89,6 +89,8 @@ if(token !== null){
 
     //----------------------------------Gestion des cliques avec la modale---------------------------------------------//
 
+    const modal = document.getElementById('modal');
+
     window.addEventListener('click', (event) => {   //ferme la modale lors d'un clique en dehors
         if (event.target === modal) {
             modal.style.display = 'none';
@@ -96,16 +98,16 @@ if(token !== null){
         }
     });
 
-    boutonQuitter = document.getElementById('quitterModal');    //Bouton pour fermer la modale
+    const boutonQuitter = document.getElementById('quitterModal');    //Bouton pour fermer la modale
     boutonQuitter.addEventListener('click', (event) => {
         modal.style.display = "none";
         retour();
         formReset();
     })
 
-    titreModal = document.getElementById("titreModal");             //bouton pour afficher la partie ajout de travail
-    formAjoutTravail = document.getElementById('formAjoutTravail');
-    boutonAjout = document.getElementById('ajoutTravail');
+    const titreModal = document.getElementById("titreModal");             //bouton pour afficher la partie ajout de travail
+    const formAjoutTravail = document.getElementById('formAjoutTravail');
+    const boutonAjout = document.getElementById('ajoutTravail');
     boutonAjout.addEventListener('click', (event) => {
         photoModal.style.display = 'none';
         titreModal.textContent = "Ajout Photo";
@@ -152,7 +154,7 @@ if(token !== null){
             divAjoutImage.appendChild(image);
             verifierChamps();
         }
-    })
+    });
 
     //----------------------------------Traitement de l'ajout du travail---------------------------------------------//
 
@@ -205,7 +207,7 @@ if(token !== null){
             });
         
         }
-    })
+    });
 
     //----------------------------------Couleur du bouton Valider---------------------------------------------//
 
@@ -244,12 +246,12 @@ if(token !== null){
             let travaux = 0;        //nombre de travaux trouvés
         
             while(travaux < data.length){                                       //Boucle qui vérifie le nombre de travaux trouvés 
-                const travail = data.find(object => object.id === compteur)       
+                const travail = data.find(object => object.id === compteur);  
                 if(travail){
                     afficherTravail(travail);
                     travaux++;
                 }
-                compteur++         
+                compteur++;         
             }
         })
         .catch(error => {
@@ -263,6 +265,7 @@ if(token !== null){
         const divTravail = document.createElement('figure');
         const imageTravail = document.createElement('img');
         const nomTravail = document.createElement('figcaption');
+        const affichageTravail = document.getElementById('gallery');
 
         imageTravail.src = travail.imageUrl;
         nomTravail.textContent = travail.title;

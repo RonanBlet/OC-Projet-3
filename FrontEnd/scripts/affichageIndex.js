@@ -18,12 +18,12 @@ fetch(workRouteUrl)                                 //fetch de récupération de
     let travaux = 0;        //nombre de travaux trouvés
 
     while(travaux < data.length){                                       //Boucle qui vérifie le nombre de travaux trouvés 
-        const travail = data.find(object => object.id === compteur)       
+        const travail = data.find(object => object.id === compteur);       
         if(travail){
             afficherTravail(travail);
             travaux++;
         }
-        compteur++         
+        compteur++;         
     }
 })
 .catch(error => {
@@ -64,7 +64,7 @@ fetch(categoriesRouteUrl)                           //Fetch de récupération de
     .then(data => {
 
         for(let i = 1; i <= data.length; i++){
-            const categorie = data.find(object => object.id === i)
+            const categorie = data.find(object => object.id === i);
             afficherCategories(categorie);
         }
     })
@@ -84,7 +84,7 @@ function afficherCategories(categorie){                             //Ajout de l
 
         boutonCategorie.addEventListener('click', function(){
             affichageObjets();
-        })
+        });
 
         break;
 
@@ -92,7 +92,7 @@ function afficherCategories(categorie){                             //Ajout de l
 
         boutonCategorie.addEventListener('click', function(){
             affichageAppartements();
-        })
+        });
         
         break;
 
@@ -101,7 +101,7 @@ function afficherCategories(categorie){                             //Ajout de l
         
         boutonCategorie.addEventListener('click', function(){
             affichageHotelResto();
-        })
+        });
 
 
         break;
@@ -185,7 +185,7 @@ if(sessionStorage.getItem('token') !== null){
         event.preventDefault();
         sessionStorage.removeItem("token");
         location.reload();
-    })
+    });
 
     const divModifier = document.getElementById('modifierProjet');     //Affichage de l'icone et du lien vers la modale       
     divModifier.classList.remove('hidden');

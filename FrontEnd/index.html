@@ -54,7 +54,7 @@
 		<div id='categories'>
 			<button id="tous">Tous</button>
 		</div>
-		<aside id="modal" class="modal" aria-hidden="true" role="dialog" >
+		<aside id="modal" class="modal" aria-hidden="true">
 			<div class="modal-wrapper">
 				<div class="hautModal">
 					<span><button class="buttonIcon" id="retour"><i class="fa-solid fa-arrow-left"></i></button></span>
@@ -66,17 +66,17 @@
 					<div class="divAjoutImage" id="divAjoutImage">
 						<div id="boutonImage">
 							<p><i class="fa-regular fa-image"></i></p>
-							<input type="file" id="inputImage" accept="image/*" name="image" />
+							<input type="file" id="inputImage" accept="image/*" name="image" >
 							<button id="ajoutPhoto" onclick="document.getElementById('inputImage').click()" type="button">+ Ajouter photo</button>
 							<p>jpg, png : 4mo max</p>
 						</div>
 					</div>
 					<div class="descriptionTravail"  id="descriptionTravail">
 						<label for="titre">Titre</label>
-						<input id="titre" type="text" name="title" />
+						<input id="titre" type="text" name="title" >
 						<label for="choixCategorieModal">Catégorie</label>
 						<select id="choixCategorieModal" name="category">
-							<option value="" selected disabled></option>
+							<option value="" label="selection par default" selected disabled></option>
 							<option value="1">Objets</option>
 							<option value="2">Appartements</option>
 							<option value="3">Hotels & restaurants</option>
@@ -112,7 +112,7 @@
 		</ul>
 	</nav>
 </footer>
-</body>
 <script src="./scripts/affichageIndex.js"></script>
 <script src="./scripts/affichageModal.js"></script>
+</body>
 </html>

@@ -43,11 +43,11 @@ function handleSubmit(event){                                   //fonction au mo
             idUtilisateur = data.userId;
             token = data.token;
             sessionStorage.setItem("token",token);
-            window.location.href = './index.html'
+            window.location.href = './index.html';
         })
         .catch(error => {
             erreurConnexion.classList.remove('hidden');                             //si problème -> affichage d'un texte  : Utilisateur inconnu
-        })
+        });
     
 
 
